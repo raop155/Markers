@@ -40,7 +40,7 @@ export default function App() {
       <ModalView isOpen={isOpen}>
         {showList ? (
           <>
-            <List points={points} />
+            <List points={points} setIsOpen={setIsOpen} />
           </>
         ) : (
           <>

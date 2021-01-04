@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
   modalView: {
     backgroundColor: '#fff',
     borderRadius: 4,
-    padding: 20,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 3,
     },
-    width: '75%',
+    minWidth: '75%',
+    height: '65%',
   },
 });
 

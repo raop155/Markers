@@ -1,19 +1,23 @@
 import React from 'react';
 import { FlatList, Text, StyleSheet, View, Button } from 'react-native';
 
-const List = ({ points }) => {
+const List = ({ points, setIsOpen }) => {
   const pointsNameList = points.map((point) => point.name);
   return (
     <>
       <View style={styles.list}>
         <FlatList
           data={pointsNameList}
-          renderItem={({ item }) => <Text>{item}</Text>}
+          renderItem={({ item }) => (
+            <View style={styles.item}>
+              <Text>{item}</Text>
+            </View>
+          )}
           keyExtractor={(item) => item}
         />
       </View>
-      <View>
-        <Button title='Close' />
+      <View style={styles.buttons}>
+        <Button title='Close' onPress={() => setIsOpen(false)} />
       </View>
     </>
   );
@@ -23,7 +27,18 @@ export default List;
 
 const styles = StyleSheet.create({
   list: {
-    height: '50%',
+    // height: '50%',
+    flex: 1,
   },
-  buttons: {},
+  item: {
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+    height: 50,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  buttons: {
+    // paddingBottom: 15,
+    padding: 10,
+  },
 });
