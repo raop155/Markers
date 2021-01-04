@@ -2,12 +2,13 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
-const Map = ({ onLongPress, points }) => {
+const Map = ({ onLongPress, points, showMarkers }) => {
   return (
     <MapView style={styles.map} onLongPress={onLongPress}>
-      {points.map((point) => {
-        return <Marker key={point.name} coordinate={point.coordinate} title={point.name} />;
-      })}
+      {showMarkers &&
+        points.map((point) => {
+          return <Marker key={point.name} coordinate={point.coordinate} title={point.name} />;
+        })}
     </MapView>
   );
 };

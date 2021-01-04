@@ -10,7 +10,11 @@ export default function App() {
   const [location, setLocation] = useState('');
   const [points, setPoints] = useState([]);
   const [showList, setShowList] = useState(false);
+  const [showMarkers, setShowMarkers] = useState(true);
 
+  const toggleMarkers = () => {
+    setShowMarkers(!showMarkers);
+  };
   const handleLongPress = ({ nativeEvent }) => {
     setPointTemp(nativeEvent.coordinate);
     setShowList(false);
@@ -36,7 +40,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <Map onLongPress={handleLongPress} points={points} />
+      <Map onLongPress={handleLongPress} points={points} showMarkers={showMarkers} />
       <ModalView isOpen={isOpen}>
         {showList ? (
           <>
@@ -56,7 +60,7 @@ export default function App() {
           </View>
         )}
       </ModalView>
-      <Panel handleShowList={handleShowList} showList={showList} />
+      <Panel handleShowList={handleShowList} showList={showList} toggleMarkers={toggleMarkers} />
     </View>
   );
 }
