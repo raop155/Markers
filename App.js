@@ -23,7 +23,7 @@ export default function App() {
     setIsOpen(false);
   };
   const handleSubmit = () => {
-    const newPoint = { name: location, ...pointTemp };
+    const newPoint = { name: location, coordinate: pointTemp };
     setPoints([...points, newPoint]);
     setLocation('');
     setIsOpen(false);
@@ -36,7 +36,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <Map onLongPress={handleLongPress} />
+      <Map onLongPress={handleLongPress} points={points} />
       <ModalView isOpen={isOpen}>
         {showList ? (
           <>
