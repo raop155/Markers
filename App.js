@@ -43,17 +43,17 @@ export default function App() {
             <List points={points} setIsOpen={setIsOpen} />
           </>
         ) : (
-          <>
+          <View style={styles.form}>
             <Input
               title='Location:'
               placeholder='Insert location'
               onChangeText={handleOnChangeText}
             />
             <View style={styles.buttons}>
-              <Button title='Cancel' onPress={cancelSubmit} />
               <Button title='Accept' onPress={handleSubmit} />
+              <Button title='Cancel' onPress={cancelSubmit} />
             </View>
-          </>
+          </View>
         )}
       </ModalView>
       <Panel handleShowList={handleShowList} showList={showList} />
@@ -69,8 +69,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  form: {
+    padding: 20,
+  },
   buttons: {
-    // backgroundColor: '#000',
     height: 75,
     justifyContent: 'space-between',
   },

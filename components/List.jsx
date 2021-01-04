@@ -4,7 +4,7 @@ import { FlatList, Text, StyleSheet, View, Button } from 'react-native';
 const List = ({ points, setIsOpen }) => {
   const pointsNameList = points.map((point) => point.name);
   return (
-    <>
+    <View style={styles.container}>
       <View style={styles.list}>
         <FlatList
           data={pointsNameList}
@@ -19,26 +19,29 @@ const List = ({ points, setIsOpen }) => {
       <View style={styles.buttons}>
         <Button title='Close' onPress={() => setIsOpen(false)} />
       </View>
-    </>
+    </View>
   );
 };
 
 export default List;
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: 450,
+    justifyContent: 'space-between',
+  },
   list: {
-    // height: '50%',
     flex: 1,
   },
   item: {
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
-    height: 50,
+    height: 43,
     justifyContent: 'center',
-    padding: 20,
+    padding: 15,
+    borderColor: '#ccc',
+    borderBottomWidth: 1,
   },
   buttons: {
-    // paddingBottom: 15,
     padding: 10,
   },
 });
