@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, TextInput, View, StyleSheet } from 'react-native';
 
 const Input = ({ title, ...rest }) => {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    // borderBottomColor: '#999',
-    // borderBottomWidth: 1,
+    borderBottomColor: '#999',
+    borderBottomWidth: 1,
   },
 });

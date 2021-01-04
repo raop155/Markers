@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Button, Text } from 'react-native';
-import { Map, ModalView, Panel, Input } from './components';
+import { StyleSheet, View, Button } from 'react-native';
+import { Map, ModalView, Panel, Input, List } from './components';
 import Constants from 'expo-constants';
 
 export default function App() {
@@ -40,7 +40,7 @@ export default function App() {
       <ModalView isOpen={isOpen}>
         {showList ? (
           <>
-            <Text>Showing List...</Text>
+            <List points={points} />
           </>
         ) : (
           <>
