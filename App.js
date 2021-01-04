@@ -1,16 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { Map, ModalView, Panel } from './components';
 import Constants from 'expo-constants';
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [points, setPoints] = useState([]);
+  const handleLongPress = ({ nativeEvent }) => {
+    setPoints([...points, { coordinate: nativeEvent.coordinate }]);
+  };
+
+  console.log(points);
 
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <Map />
+      <Map onLongPress={handleLongPress} />
       <ModalView isOpen={isOpen} />
       <Panel />
     </View>
