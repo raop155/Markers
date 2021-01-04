@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Button, View } from 'react-native';
 
-const Panel = () => {
+const Panel = ({ handleShowList, showList }) => {
   return (
     <View style={styles.panel}>
-      <Button title='List' />
+      <Button onPress={handleShowList} title='List' />
       <Button title='Show/Hide' />
     </View>
   );
