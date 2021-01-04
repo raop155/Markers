@@ -1,15 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Modal, Text } from 'react-native';
 
-const ModalView = (props) => {
-  const { isOpen } = props;
-
+const ModalView = ({ isOpen, children }) => {
   return (
     <Modal animationType='slide' transparent={true} visible={isOpen}>
       <View style={styles.center}>
-        <View style={styles.modalView}>
-          <Text>😃</Text>
-        </View>
+        <View style={styles.modalView}>{children}</View>
       </View>
     </Modal>
   );

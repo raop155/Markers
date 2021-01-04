@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Map, ModalView, Panel } from './components';
 import Constants from 'expo-constants';
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [points, setPoints] = useState([]);
   const handleLongPress = ({ nativeEvent }) => {
     setPoints([...points, { coordinate: nativeEvent.coordinate }]);
@@ -17,7 +17,9 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style='auto' />
       <Map onLongPress={handleLongPress} />
-      <ModalView isOpen={isOpen} />
+      <ModalView isOpen={isOpen}>
+        <Text>Lalalang</Text>
+      </ModalView>
       <Panel />
     </View>
   );
